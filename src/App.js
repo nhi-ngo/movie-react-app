@@ -1,26 +1,89 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import { AsyncTypeahead } from 'react-bootstrap-typeahead'
+import axios from 'axios'
 
-function App() {
+import Card from './components/Card'
+import MovieLogo from './images/logo.svg'
+
+import 'react-bootstrap-typeahead/css/Typeahead.css'
+
+const App = () => {
+  const [data, setData] = useState({})
+  const [options, setOptions] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+
+  const API = '&api_key=aa18e4c975fdcdd4144c5ea573ce10ae'
+  const INITIAL_URL = `https://api.themoviedb.org/3/movie/577922?${API}`
+  const SEARCH_URL =
+    'https://api.themoviedb.org/3/search/movie?&language=en-US&page=1&include_adult=false'
+
+  useEffect(() => {
+    fetchApi(INITIAL_URL)
+  }, [])
+
+  const fetchApi = (url) => {
+    axios.get(url).then((res) => {
+      const { data } = res
+
+      setData({
+        movieId: data.id,
+        title: data.original_title,
+        tagline: data.tagline,
+        overview: data.overview,
+        release: data.release_date,
+        runtime: data.runtime,
+        genres: data.genres,
+        vote: data.vote_average,
+        backdrop: data.backdrop_path,
+        poster: data.poster_path,
+      })
+    })
+  }
+
+  const fetchMovieId = (movieId) => {
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?${API}`
+    fetchApi(url)
+  }
+
+  const handleSearch = async (term) => {
+    setIsLoading(true)
+
+    const response = await axios.get(`${SEARCH_URL}?${API}&query=${term}`)
+
+    const searchResults = response.data.results.map((i) => ({
+      id: i.id,
+      title: i.original_title,
+    }))
+
+    setOptions(searchResults)
+    setIsLoading(false)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div>
+      <div className="logo-container">
+        <a href="/" title="TMDb Movie Search">
+          <img src={MovieLogo} alt="Movie Database" className="logo" />
         </a>
-      </header>
+      </div>
+      <div className="search-input-box">
+        <AsyncTypeahead
+          id="unique_id"
+          labelKey="title"
+          isLoading={isLoading}
+          onSearch={handleSearch}
+          options={options}
+          placeholder="Search Movie Title..."
+          renderMenuItemChildren={(option) => (
+            <div key={option.id} onClick={() => fetchMovieId(option.id)}>
+              <span>{option.title}</span>
+            </div>
+          )}
+        />
+        <Card data={data} />
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
