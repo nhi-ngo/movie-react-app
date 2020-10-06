@@ -30,6 +30,7 @@
         ]
       }
     ],
+    "react/jsx-one-expression-per-line": "off",
     "no-console": 2,
     "prettier/prettier": [
       "error",
