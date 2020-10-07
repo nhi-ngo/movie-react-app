@@ -1,0 +1,75 @@
+@import './variables.scss';
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: $poppins;
+	background-size: cover;
+}
+
+.outer-container {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.8) 15%, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.7) 90%);
+}
+
+.app-container {
+	padding: 25px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	margin: 30px 0;
+
+	.logo {
+		width: 100%;
+		max-width: 85px;
+	}
+
+	.searchBox {
+		flex: 0.7;
+	}
+}
+
+// Typeahead input-box styling
+.rbt-input-main {
+	border-radius: 0;
+	background: none;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+  border-bottom: 1px solid #fff;
+  font-weight: 300;
+
+	&:focus {
+		background-color: transparent;
+		border-bottom: 1px solid #fff;
+		box-shadow: none;
+		color: #fff;
+	}
+}
+
+.rbt-input-hint {
+	color: transparent !important;
+}
+
+.rbt-menu.dropdown-menu {
+	background: rgba(0, 0, 0, 0.85);
+
+	.dropdown-item {
+		color: $lightGray;
+		font-weight: 300;
+
+		&:hover {
+			color: $darkGray;
+			@include gradient(to right, $blue-gradient);
+		}
+	}
+}
