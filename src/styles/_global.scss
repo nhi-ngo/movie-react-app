@@ -17,6 +17,10 @@ body {
 	font-weight: 300;
 }
 
+#root {
+  animation: fadein ease-out 1s;
+}
+
 .outer-container {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 90%);
 	display: flex;
@@ -40,93 +44,3 @@ body {
 	}
 }
 
-.app-container {
-	padding: 20px;
-
-	@include breakpoint(small) {
-		max-width: 600px;
-	}
-
-	@include breakpoint(medium) {
-		max-width: 750px;
-	}
-
-	@include breakpoint(large) {
-		max-width: 850px;
-	}
-
-	@include breakpoint(xlarge) {
-		max-width: 950px;
-	}
-}
-
-.header {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin: 20px 0 40px;
-
-	@include breakpoint(small) {
-		flex-direction: row;
-		justify-content: space-between;
-	}
-
-	.logo {
-		width: 100%;
-		max-width: 100px;
-		margin-bottom: 33px;
-
-		@include breakpoint(small) {
-			margin-bottom: 0;
-		}
-	}
-
-	.searchBox {
-		width: 100%;
-
-		@include breakpoint(small) {
-			width: 55%;
-		}
-	}
-}
-
-/* Typeahead input-box styling */
-
-.rbt-input-main {
-	border-radius: 0;
-	background: none;
-	border-left: none;
-	border-top: none;
-	border-right: none;
-	font-weight: 300;
-
-	&::placeholder {
-		font-size: 0.9rem;
-	}
-
-	&:focus {
-		background-color: transparent;
-		border-bottom: 1px solid #fff;
-		box-shadow: none;
-		color: #fff;
-	}
-}
-
-.rbt-input-hint {
-	color: transparent !important;
-}
-
-.rbt-menu.dropdown-menu {
-  background: rgba(0, 0, 0, 0.85);
-
-	.dropdown-item {
-		color: $lightGray;
-		font-weight: 300;
-
-		&:hover {
-			color: $darkGray;
-			@include gradient(to right, $blue-gradient);
-		}
-	}
-}
