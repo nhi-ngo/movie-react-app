@@ -1,0 +1,288 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-size: cover;
+  background-attachment: fixed;
+  font-weight: 300;
+}
+
+.outer-container {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(15%, rgba(0, 0, 0, 0.85)), color-stop(40%, rgba(0, 0, 0, 0.2)), color-stop(90%, black));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, black 90%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .outer-container {
+    height: 100vh;
+  }
+}
+
+.outer-container footer a {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.outer-container footer a:hover {
+  background: -webkit-gradient(linear, left top, right top, from(#90cea1), to(#01b4e4));
+  background: linear-gradient(to right, #90cea1, #01b4e4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-container {
+  padding: 20px;
+}
+
+@media screen and (min-width: 550px) {
+  .app-container {
+    max-width: 600px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .app-container {
+    max-width: 750px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .app-container {
+    max-width: 850px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .app-container {
+    max-width: 950px;
+  }
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0 40px;
+}
+
+@media screen and (min-width: 550px) {
+  .header {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.header .logo {
+  width: 100%;
+  max-width: 100px;
+  margin-bottom: 33px;
+}
+
+@media screen and (min-width: 550px) {
+  .header .logo {
+    margin-bottom: 0;
+  }
+}
+
+.header .searchBox {
+  width: 100%;
+}
+
+@media screen and (min-width: 550px) {
+  .header .searchBox {
+    width: 55%;
+  }
+}
+
+/* Typeahead input-box styling */
+.rbt-input-main {
+  border-radius: 0;
+  background: none;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  font-weight: 300;
+}
+
+.rbt-input-main::-webkit-input-placeholder {
+  font-size: 0.9rem;
+}
+
+.rbt-input-main:-ms-input-placeholder {
+  font-size: 0.9rem;
+}
+
+.rbt-input-main::-ms-input-placeholder {
+  font-size: 0.9rem;
+}
+
+.rbt-input-main::placeholder {
+  font-size: 0.9rem;
+}
+
+.rbt-input-main:focus {
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #fff;
+}
+
+.rbt-input-hint {
+  color: transparent !important;
+}
+
+.rbt-menu.dropdown-menu {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.rbt-menu.dropdown-menu .dropdown-item {
+  color: #fafafa;
+  font-weight: 300;
+}
+
+.rbt-menu.dropdown-menu .dropdown-item:hover {
+  color: #343434;
+  background: -webkit-gradient(linear, left top, right top, from(#90cea1), to(#01b4e4));
+  background: linear-gradient(to right, #90cea1, #01b4e4);
+}
+
+.card-container {
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.data-container {
+  color: #ccc;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 768px) {
+  .data-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+}
+
+.overview-details {
+  margin: 15px 20px 45px;
+}
+
+@media screen and (min-width: 768px) {
+  .overview-details {
+    -webkit-box-flex: 0.6;
+        -ms-flex: 0.6;
+            flex: 0.6;
+  }
+}
+
+.overview-details .title {
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.overview-details .tagline {
+  color: #01b4e4;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.4rem;
+}
+
+.overview-details .overview {
+  font-size: 0.91rem;
+  line-height: 1.5rem;
+  color: #e6e6e6;
+  margin-top: 8px;
+}
+
+.release-details {
+  font-family: "Oswald", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.release-details div:first-child {
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+}
+
+.release-details div:last-child {
+  -webkit-box-flex: 0.6;
+      -ms-flex: 0.6;
+          flex: 0.6;
+}
+
+.release-details > div {
+  color: #fafafa;
+}
+
+.release-details > div > :first-child {
+  margin: 20px 0;
+}
+
+.release-details .meta-data {
+  display: block;
+  color: #01b4e4;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.poster-container {
+  border-radius: 0 0 3px 3px;
+}
+
+@media screen and (min-width: 768px) {
+  .poster-container {
+    -webkit-box-flex: 0.5;
+        -ms-flex: 0.5;
+            flex: 0.5;
+  }
+}
+
+.poster-container .poster-img {
+  width: 100%;
+}
+/*# sourceMappingURL=main.css.map */

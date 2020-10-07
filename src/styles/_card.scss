@@ -1,0 +1,81 @@
+.card-container {
+	background-color: rgba(0, 0, 0, 0.85);
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.data-container {
+	color: $midGray;
+	font-weight: 300;
+
+	@include breakpoint(medium) {
+		display: flex;
+		flex-direction: row-reverse;
+	}
+}
+
+.overview-details {
+	margin: 15px 20px 45px;
+
+	@include breakpoint(medium) {
+		flex: 0.6;
+	}
+
+	.title {
+		text-transform: uppercase;
+		color: #fff;
+	}
+
+	.tagline {
+		color: $lightBlue;
+		font-family: $oswald;
+		font-size: 1.4rem;
+	}
+
+	.overview {
+		font-size: 0.91rem;
+    line-height: 1.5rem;
+		color: darken($color: $lightGray, $amount: 8);
+		margin-top: 8px;
+	}
+}
+
+.release-details {
+	font-family: $oswald;
+	display: flex;
+
+	div:first-child {
+		flex: 0.5;
+	}
+
+	div:last-child {
+		flex: 0.6;
+	}
+
+	& > div {
+		color: $lightGray;
+
+		& > :first-child {
+			margin: 20px 0;
+		}
+	}
+
+	.meta-data {
+		display: block;
+		color: $lightBlue;
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+	}
+}
+
+.poster-container {
+	border-radius: 0 0 3px 3px;
+
+	@include breakpoint(medium) {
+		flex: 0.5;
+	}
+
+	.poster-img {
+		width: 100%;
+	}
+}

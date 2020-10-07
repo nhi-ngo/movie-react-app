@@ -13,40 +13,97 @@ html {
 body {
 	font-family: $poppins;
 	background-size: cover;
+	background-attachment: fixed;
+	font-weight: 300;
 }
 
 .outer-container {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.8) 15%, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.7) 90%);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 90%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 25px;
+
+	@include breakpoint(medium) {
+		height: 100vh;
+	}
+
+	footer a {
+		color: darken($midGray, 30);
+		font-size: 0.8rem;
+
+		&:hover {
+			@include gradient(to right, $blue-gradient);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
 }
 
 .app-container {
-	padding: 25px;
+	padding: 20px;
+
+	@include breakpoint(small) {
+		max-width: 600px;
+	}
+
+	@include breakpoint(medium) {
+		max-width: 750px;
+	}
+
+	@include breakpoint(large) {
+		max-width: 850px;
+	}
+
+	@include breakpoint(xlarge) {
+		max-width: 950px;
+	}
 }
 
 .header {
 	display: flex;
-	justify-content: space-between;
-	margin: 30px 0;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 0 40px;
+
+	@include breakpoint(small) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
 
 	.logo {
 		width: 100%;
-		max-width: 85px;
+		max-width: 100px;
+		margin-bottom: 33px;
+
+		@include breakpoint(small) {
+			margin-bottom: 0;
+		}
 	}
 
 	.searchBox {
-		flex: 0.7;
+		width: 100%;
+
+		@include breakpoint(small) {
+			width: 55%;
+		}
 	}
 }
 
-// Typeahead input-box styling
+/* Typeahead input-box styling */
+
 .rbt-input-main {
 	border-radius: 0;
 	background: none;
 	border-left: none;
 	border-top: none;
 	border-right: none;
-  border-bottom: 1px solid #fff;
-  font-weight: 300;
+	font-weight: 300;
+
+	&::placeholder {
+		font-size: 0.9rem;
+	}
 
 	&:focus {
 		background-color: transparent;
@@ -61,7 +118,7 @@ body {
 }
 
 .rbt-menu.dropdown-menu {
-	background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.85);
 
 	.dropdown-item {
 		color: $lightGray;

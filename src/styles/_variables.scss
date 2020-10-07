@@ -1,0 +1,33 @@
+$lightGray: #fafafa;
+$midGray: #ccc;
+$darkGray: #343434;
+$lightBlue: #01b4e4;
+$lightGreen: #90cea1;
+
+$poppins: 'Poppins', sans-serif;
+$oswald: 'Oswald', sans-serif;
+
+// color-gradient
+$blue-gradient: $lightGreen, $lightBlue;
+
+@mixin gradient($direction, $list) {
+	background: linear-gradient($direction, $list);
+}
+
+// media-queries
+$breakpoints: (
+	small: 550px,
+	medium: 768px,
+	large: 1000px,
+	xlarge: 1200px,
+);
+
+@mixin breakpoint($size) {
+	$breakpoint-value: map-get($breakpoints, $size);
+
+	@media screen and (min-width: $breakpoint-value) {
+		@content;
+	}
+}
+
+

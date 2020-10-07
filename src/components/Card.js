@@ -9,13 +9,14 @@ export default function Card(props) {
     runtime,
     genres,
     vote,
+    homepage,
     backdrop,
     poster,
   } = props.data
 
   const noData = '-'
-  let posterImg = `https://image.tmdb.org/t/p/w500/${poster}`
-  const backdropImg = `https://image.tmdb.org/t/p/original/${backdrop}`
+  let posterImg = `https://image.tmdb.org/t/p/w500${poster}`
+  const backdropImg = `https://image.tmdb.org/t/p/original${backdrop}`
   const genresList = arrayToString(genres)
 
   useEffect(() => {
@@ -47,29 +48,37 @@ export default function Card(props) {
   }
 
   return (
-    <div>
-      <div>
-        <h1>{title}</h1>
-        <p>{tagline}</p>
-        <p>{overview}</p>
+    <div className="card-container">
+      <div className="data-container">
+        <div className="overview-details">
+          <h1 className="title">{title}</h1>
+          <span className="tagline">{tagline}</span>
+          <p className="overview">{overview}</p>
 
-        <div className="release-details">
-          <div className="col-xs-6">
-            Release Date: <span>{release}</span>
-          </div>
-          <div className="col-xs-6">
-            Running Time: <span>{runtime} mins</span>
-          </div>
-          <div className="col-xs-6">
-            Genres: <span>{genresList}</span>
-          </div>
-          <div className="col-xs-6">
-            Vote Average: <span>{vote}</span>
+          <div className="release-details">
+            <div>
+              <div>
+                Release Date: <span className="meta-data"> {release}</span>
+              </div>
+              <div>
+                Vote Average: <span className="meta-data">{vote}</span>
+              </div>
+            </div>
+            <div>
+              <div>
+                Running Time: <span className="meta-data">{runtime} mins</span>
+              </div>
+              <div>
+                Genres: <span className="meta-data"> {genresList}</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="poster-container">
-          <img src={posterImg} alt={title} className="poster" />
+          <a href={homepage}>
+            <img src={posterImg} alt={title} className="poster-img" />
+          </a>
         </div>
       </div>
     </div>
