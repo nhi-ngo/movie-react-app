@@ -9,7 +9,6 @@ export default function Card(props) {
     runtime,
     genres,
     vote,
-    homepage,
     backdrop,
     poster,
   } = props.data
@@ -76,9 +75,7 @@ export default function Card(props) {
         </div>
 
         <div className="poster-container">
-          <a href={homepage}>
-            <img src={posterImg} alt={title} className="poster-img" />
-          </a>
+          <img src={posterImg} alt={title} className="poster-img" />
         </div>
       </div>
     </div>

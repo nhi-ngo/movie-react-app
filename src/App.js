@@ -32,7 +32,6 @@ const App = () => {
         runtime: data.runtime,
         genres: data.genres,
         vote: data.vote_average,
-        homepage: data.homepage,
         backdrop: data.backdrop_path,
         poster: data.poster_path,
       })
